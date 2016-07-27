@@ -1,0 +1,441 @@
+""" 
+Created on 2012-1-10 
+Create a xml document 
+@author: xiaojay 
+"""
+s = """<o:Column Id="o7">
+<a:ObjectID>741E15F8-CE6C-4E31-BD1A-605E89B23A64</a:ObjectID>
+<a:Name>ID</a:Name>
+<a:Code>ID</a:Code>
+<a:CreationDate>1203084988</a:CreationDate>
+<a:Creator>lpommier</a:Creator>
+<a:ModificationDate>1203085518</a:ModificationDate>
+<a:Modifier>lpommier</a:Modifier>
+<a:DataType>int</a:DataType>
+<a:Identity>1</a:Identity>
+<a:Column.Mandatory>1</a:Column.Mandatory>
+</o:Column>"""
+from xml.dom import minidom 
+
+def addUtil(Column,newColumn)
+    ObjectID = doc.createElement("a:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode(newColumn["ObjectID"])) 
+    Column.appendChild(ObjectID) 
+
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode(newColumn["Name"])) 
+    Column.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode(newColumn["Code"])) 
+    Column.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode(newColumn["CreationDate"])) 
+    Column.appendChild(CreationDate) 
+      
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode(newColumn["Creator"])) 
+    Column.appendChild(Creator) 
+      
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode(newColumn["ModificationDate"])) 
+    Column.appendChild(ModificationDate) 
+      
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode(newColumn["Modifier"])) 
+    Column.appendChild(Modifier) 
+    
+    return Column
+def addColumn(doc,newColumn): 
+    Column = doc.createElement("o:Column") 
+    Column.setAttribute("Id", newColumn["Id"]) 
+      
+    ObjectID = doc.createElement("a:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode(newColumn["ObjectID"])) 
+    Column.appendChild(ObjectID) 
+
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode(newColumn["Name"])) 
+    Column.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode(newColumn["Code"])) 
+    Column.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode(newColumn["CreationDate"])) 
+    Column.appendChild(CreationDate) 
+      
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode(newColumn["Creator"])) 
+    Column.appendChild(Creator) 
+      
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode(newColumn["ModificationDate"])) 
+    Column.appendChild(ModificationDate) 
+      
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode(newColumn["Modifier"])) 
+    Column.appendChild(Modifier) 
+      
+    DataType = doc.createElement("a:DataType") 
+    DataType.appendChild(doc.createTextNode(newColumn["DataType"])) 
+    Column.appendChild(DataType) 
+      
+    Identity = doc.createElement("a:Identity") 
+    Identity.appendChild(doc.createTextNode(newColumn["Identity"])) 
+    Column.appendChild(Identity) 
+      
+    Mandatory = doc.createElement("a:Column.Mandatory") 
+    Mandatory.appendChild(doc.createTextNode(newColumn["Mandatory"])) 
+    Column.appendChild(Mandatory) 
+    return Column
+def addKey(doc,newKey): 
+    Key = doc.createElement("o:Key") 
+    Key.setAttribute("Id", newKey["Id"]) 
+      
+    ObjectID = doc.createElement("a:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode(newKey["ObjectID"])) 
+    Key.appendChild(ObjectID) 
+
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode(newKey["Name"])) 
+    Key.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode(newKey["Code"])) 
+    Key.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode(newKey["CreationDate"])) 
+    Key.appendChild(CreationDate) 
+      
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode(newKey["Creator"])) 
+    Key.appendChild(Creator) 
+      
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode(newKey["ModificationDate"])) 
+    Key.appendChild(ModificationDate) 
+      
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode(newKey["Modifier"])) 
+    Key.appendChild(Modifier) 
+      
+    Columns = doc.createElement("a:Key.Columns") 
+    Column = doc.createElement("o:Column") 
+    Column.setAttribute("Ref", newKey["Ref"]) 
+    Columns.appendChild(Column) 
+    Key.appendChild(Columns) 
+    return Key
+
+
+def createModel():
+    doc = minidom.Document() 
+    doc.appendChild(doc.createComment("do not edit this file")) 
+    Model = doc.createElement("Model") 
+    Model.setAttribute("xmlns:a", "attribute")
+    Model.setAttribute("xmlns:c", "collection")
+    Model.setAttribute("xmlns:o", "object")
+    
+    RootObject = doc.createElement("o:RootObject") 
+    RootObject.setAttribute("Id", "o1") 
+
+    Children = doc.createElement("c:Children") 
+    o_Model = doc.createElement("o:Model") 
+    o_Model.setAttribute("Id", "o2") 
+    ObjectID = doc.createElement("a:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode("311870BB-EB26-420E-B924-15640B446E4E")) 
+    o_Model.appendChild(ObjectID) 
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode("Data Warehouse")) 
+    o_Model.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode("DATA_WAREHOUSE")) 
+    o_Model.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode("1203083812")) 
+    o_Model.appendChild(CreationDate) 
+
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode("lpommier")) 
+    o_Model.appendChild(Creator) 
+
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode("1287480137")) 
+    o_Model.appendChild(ModificationDate) 
+
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode("vaudino")) 
+    o_Model.appendChild(Modifier) 
+
+    PackageOptionsText = doc.createElement("a:PackageOptionsText") 
+    PackageOptionsText.appendChild(doc.createTextNode("PackageOptionsText")) 
+    o_Model.appendChild(PackageOptionsText) 
+
+    ModelOptionsText = doc.createElement("a:ModelOptionsText") 
+    ModelOptionsText.appendChild(doc.createTextNode("ModelOptionsText")) 
+    o_Model.appendChild(ModelOptionsText) 
+
+    RepositoryInformation = doc.createElement("a:RepositoryInformation") 
+    RepositoryInformation.appendChild(doc.createTextNode("RepositoryInformation")) 
+    o_Model.appendChild(RepositoryInformation) 
+
+    ExternalDependenciesText = doc.createElement("a:ExternalDependenciesText") 
+    ExternalDependenciesText.appendChild(doc.createTextNode("ExternalDependenciesText")) 
+    o_Model.appendChild(ExternalDependenciesText) 
+    
+    DBMS = addDBMS(doc)
+    o_Model.appendChild(DBMS) 
+    
+    Children.appendChild(o_Model) 
+    RootObject.appendChild(Children) 
+
+    Model.appendChild(RootObject) 
+
+    doc.appendChild(Model) 
+    f = file("Model.pdm","w") 
+    doc.writexml(f) 
+    f.close() 
+    
+def addDBMS(doc):
+    DBMS = doc.createElement("c:DBMS") 
+    Shortcut = doc.createElement("o:Shortcut") 
+    Shortcut.setAttribute("Id", "o3") 
+    ObjectID = doc.createElement("o:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode("1DE1564B-B9B6-4D29-846E-D32385B30AC0")) 
+    Shortcut.appendChild(ObjectID) 
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode("Data Warehouse")) 
+    Shortcut.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode("DATA_WAREHOUSE")) 
+    Shortcut.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode("1203083812")) 
+    Shortcut.appendChild(CreationDate) 
+
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode("lpommier")) 
+    Shortcut.appendChild(Creator) 
+
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode("1287480137")) 
+    Shortcut.appendChild(ModificationDate) 
+
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode("vaudino")) 
+    Shortcut.appendChild(Modifier) 
+    
+    TargetStereotype = doc.createElement("a:TargetStereotype") 
+    Shortcut.appendChild(TargetStereotype) 
+    
+    TargetID = doc.createElement("a:TargetID") 
+    TargetID.appendChild(doc.createTextNode("TargetID")) 
+    Shortcut.appendChild(TargetID) 
+    
+    TargetClassID = doc.createElement("a:TargetClassID") 
+    TargetClassID.appendChild(doc.createTextNode("TargetClassID")) 
+    Shortcut.appendChild(TargetClassID) 
+    
+    DBMS.appendChild(Shortcut) 
+    return DBMS
+def addPhysicalDiagrams(doc):
+    PhysicalDiagrams = doc.createElement("c:PhysicalDiagrams") 
+    PhysicalDiagram = doc.createElement("o:PhysicalDiagram") 
+    PhysicalDiagram.setAttribute("Id", "o4") 
+    ObjectID = doc.createElement("o:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode("1DE1564B-B9B6-4D29-846E-D32385B30AC0")) 
+    PhysicalDiagram.appendChild(ObjectID) 
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode("Data Warehouse")) 
+    PhysicalDiagram.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode("DATA_WAREHOUSE")) 
+    PhysicalDiagram.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode("1203083812")) 
+    PhysicalDiagram.appendChild(CreationDate) 
+
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode("lpommier")) 
+    PhysicalDiagram.appendChild(Creator) 
+
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode("1287480137")) 
+    PhysicalDiagram.appendChild(ModificationDate) 
+
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode("vaudino")) 
+    PhysicalDiagram.appendChild(Modifier) 
+    
+    DisplayPreferences = doc.createElement("a:DisplayPreferences") 
+    DisplayPreferences.appendChild(doc.createTextNode("DisplayPreferences")) 
+    PhysicalDiagram.appendChild(DisplayPreferences) 
+    
+    PaperSize = doc.createElement("a:PaperSize") 
+    PaperSize.appendChild(doc.createTextNode("(8268, 11693)")) 
+    PhysicalDiagram.appendChild(PaperSize) 
+    
+    PageMargins = doc.createElement("a:PageMargins") 
+    PageMargins.appendChild(doc.createTextNode("((315,354), (433,354))")) 
+    PhysicalDiagram.appendChild(PageMargins) 
+    
+    PageOrientation = doc.createElement("a:PageOrientation") 
+    PageOrientation.appendChild(doc.createTextNode("1")) 
+    PhysicalDiagram.appendChild(PageOrientation) 
+    
+    PaperSource = doc.createElement("a:PaperSource") 
+    PaperSource.appendChild(doc.createTextNode("7")) 
+    PhysicalDiagram.appendChild(PaperSource) 
+    
+    PhysicalDiagrams.appendChild(PhysicalDiagram) 
+    return PhysicalDiagrams
+
+def addDefaultDiagram(doc):
+    DefaultDiagram = doc.createElement("c:DefaultDiagram") 
+    PhysicalDiagram = doc.createElement("o:PhysicalDiagram") 
+    PhysicalDiagram.setAttribute("Ref", "o4") 
+    DefaultDiagram.appendChild(PhysicalDiagram) 
+    return DefaultDiagram
+def addTables(doc):
+    Tables = doc.createElement("c:Tables") 
+    Table = doc.createElement("o:Table") 
+    Table.setAttribute("Id", "o9") 
+    ObjectID = doc.createElement("o:ObjectID") 
+    ObjectID.appendChild(doc.createTextNode("1DE1564B-B9B6-4D29-846E-D32385B30AC0")) 
+    Table.appendChild(ObjectID) 
+    Name = doc.createElement("a:Name") 
+    Name.appendChild(doc.createTextNode("Data Warehouse")) 
+    Table.appendChild(Name) 
+    
+    Code = doc.createElement("a:Code") 
+    Code.appendChild(doc.createTextNode("DATA_WAREHOUSE")) 
+    Table.appendChild(Code) 
+      
+    CreationDate = doc.createElement("a:CreationDate") 
+    CreationDate.appendChild(doc.createTextNode("1203083812")) 
+    Table.appendChild(CreationDate) 
+
+    Creator = doc.createElement("a:Creator") 
+    Creator.appendChild(doc.createTextNode("lpommier")) 
+    Table.appendChild(Creator) 
+
+    ModificationDate = doc.createElement("a:ModificationDate") 
+    ModificationDate.appendChild(doc.createTextNode("1287480137")) 
+    Table.appendChild(ModificationDate) 
+
+    Modifier = doc.createElement("a:Modifier") 
+    Modifier.appendChild(doc.createTextNode("vaudino")) 
+    Table.appendChild(Modifier) 
+    
+    TotalSavingCurrency = doc.createElement("a:TotalSavingCurrency") 
+    Table.appendChild(TotalSavingCurrency) 
+    
+    
+    Tables.appendChild(Table) 
+    return Tables
+
+createModel()
+def createbook():
+    doc = minidom.Document() 
+    doc.appendChild(doc.createComment("This is a simple xml.")) 
+    booklist = doc.createElement("booklist") 
+    doc.appendChild(booklist) 
+    addBook({"id":"1001","title":"An apple","firstname":"Peter","lastname":"Zhang","pubdate":"2012-1-12"}) 
+    addBook({"id":"1002","title":"Love","firstname":"Mike","lastname":"Li","pubdate":"2012-1-10"}) 
+    addBook({"id":"1003","title":"Steve.Jobs","firstname":"Tom","lastname":"Wang","pubdate":"2012-1-19"}) 
+    addBook({"id":"1004","title":"Harry Potter","firstname":"Peter","lastname":"Chen","pubdate":"2012-11-11"}) 
+      
+    f = file("book.xml","w") 
+    doc.writexml(f) 
+    f.close() 
+
+def addBook(newbook): 
+    book = doc.createElement("book") 
+    book.setAttribute("id", newbook["id"]) 
+      
+    title = doc.createElement("title") 
+    title.appendChild(doc.createTextNode(newbook["title"])) 
+    book.appendChild(title) 
+      
+    author = doc.createElement("author") 
+    name = doc.createElement("name") 
+    firstname = doc.createElement("firstname") 
+    firstname.appendChild(doc.createTextNode(newbook["firstname"])) 
+    lastname = doc.createElement("lastname") 
+    lastname.appendChild(doc.createTextNode(newbook["lastname"])) 
+    name.appendChild(firstname) 
+    name.appendChild(lastname) 
+    author.appendChild(name) 
+    book.appendChild(author) 
+      
+    pubdate = doc.createElement("pubdate") 
+    pubdate.appendChild(doc.createTextNode(newbook["pubdate"])) 
+    book.appendChild(pubdate) 
+      
+    booklist.appendChild(book) 
+  
+#addColumn({"Id":"o7","ObjectID":"741E15F8-CE6C-4E31-BD1A-605E89B23A64","Name":"ID"}) 
+
+
+"""<o:Table Id="o6">
+<a:ObjectID>5896698C-A3A8-4E90-85C9-B143910BB97D</a:ObjectID>
+<a:Name>Customer</a:Name>
+<a:Code>CUSTOMER</a:Code>
+<a:CreationDate>1203083829</a:CreationDate>
+<a:Creator>lpommier</a:Creator>
+<a:ModificationDate>1203084988</a:ModificationDate>
+<a:Modifier>lpommier</a:Modifier>
+<a:TotalSavingCurrency/>
+<c:Columns>
+<o:Column Id="o7">
+<a:ObjectID>741E15F8-CE6C-4E31-BD1A-605E89B23A64</a:ObjectID>
+<a:Name>ID</a:Name>
+<a:Code>ID</a:Code>
+<a:CreationDate>1203084988</a:CreationDate>
+<a:Creator>lpommier</a:Creator>
+<a:ModificationDate>1203085518</a:ModificationDate>
+<a:Modifier>lpommier</a:Modifier>
+<a:DataType>int</a:DataType>
+<a:Identity>1</a:Identity>
+<a:Column.Mandatory>1</a:Column.Mandatory>
+</o:Column>
+<o:Column Id="o8">
+<a:ObjectID>035AFDEF-0705-4E90-8DF2-3119792548BE</a:ObjectID>
+<a:Name>Name</a:Name>
+<a:Code>NAME</a:Code>
+<a:CreationDate>1203084163</a:CreationDate>
+<a:Creator>lpommier</a:Creator>
+<a:ModificationDate>1203084177</a:ModificationDate>
+<a:Modifier>lpommier</a:Modifier>
+<a:DataType>varchar(100)</a:DataType>
+<a:Length>100</a:Length>
+</o:Column>
+</c:Columns>
+<c:Keys>
+<o:Key Id="o9">
+<a:ObjectID>83B6561C-ECA8-4928-94A9-20B0AF2DEDCD</a:ObjectID>
+<a:Name>Key_1</a:Name>
+<a:Code>KEY_1</a:Code>
+<a:CreationDate>1203084988</a:CreationDate>
+<a:Creator>lpommier</a:Creator>
+<a:ModificationDate>1203084988</a:ModificationDate>
+<a:Modifier>lpommier</a:Modifier>
+<c:Key.Columns>
+<o:Column Ref="o7"/>
+</c:Key.Columns>
+</o:Key>
+</c:Keys>
+<c:PrimaryKey>
+<o:Key Ref="o9"/>
+</c:PrimaryKey>
+</o:Table>
+"""
